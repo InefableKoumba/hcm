@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-linear-to-br from-gray-900 to-gray-800 text-white pt-12 pb-8 mt-12">
+    <footer className="bg-linear-to-br from-gray-900 to-gray-800 text-white pb-8 pt-12">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           <div>

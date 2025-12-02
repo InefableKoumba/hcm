@@ -10,6 +10,7 @@ import {
   Play,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -37,8 +38,20 @@ export default function Hero() {
       id="accueil"
       className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden pt-24"
     >
+      {/* Hero Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2070&auto=format&fit=crop"
+          alt="Accessibility and inclusion"
+          fill
+          className="object-cover opacity-20"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+      </div>
+
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-radial from-white/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-radial from-white/10 via-transparent to-transparent pointer-events-none z-10" />
 
       {/* Animated Circles */}
       <div
@@ -63,7 +76,7 @@ export default function Hero() {
       <div className="absolute top-1/3 right-20 w-3 h-3 bg-white/20 rounded-full animate-pulse delay-500" />
       <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-white/25 rounded-full animate-ping delay-1000" />
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+      <div className="container mx-auto px-6 max-w-7xl relative z-20">
         <div className="text-center text-white max-w-5xl mx-auto">
           {/* Badge */}
           <div className="animate-fade-in mb-8">
