@@ -1,5 +1,5 @@
 import {
-  Wheelchair,
+  ShipWheel,
   GraduationCap,
   Building2,
   HeartHandshake,
@@ -13,7 +13,7 @@ export default function Actions() {
       title: "Distribution d'équipements de mobilité",
       description:
         "Nous distribuons gratuitement des fauteuils roulants, béquilles, déambulateurs et autres équipements de mobilité aux personnes en situation de handicap qui en ont besoin. Plus de 500 équipements distribués depuis notre création.",
-      icon: Wheelchair,
+      icon: ShipWheel,
       color: "#0052a3",
       stats: "500+",
       statsLabel: "Équipements distribués",
@@ -90,7 +90,11 @@ export default function Actions() {
                     className="p-3 rounded-lg shrink-0"
                     style={{ backgroundColor: `${action.color}15` }}
                   >
-                    <IconComponent size={28} color={action.color} strokeWidth={2} />
+                    <IconComponent
+                      size={28}
+                      color={action.color}
+                      strokeWidth={2}
+                    />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -102,10 +106,15 @@ export default function Actions() {
                   {action.description}
                 </p>
                 <div className="pt-4 border-t border-gray-100">
-                  <div className="text-2xl font-bold" style={{ color: action.color }}>
+                  <div
+                    className="text-2xl font-bold"
+                    style={{ color: action.color }}
+                  >
                     {action.stats}
                   </div>
-                  <div className="text-sm text-gray-600">{action.statsLabel}</div>
+                  <div className="text-sm text-gray-600">
+                    {action.statsLabel}
+                  </div>
                 </div>
               </div>
             );
@@ -115,4 +124,3 @@ export default function Actions() {
     </section>
   );
 }
-

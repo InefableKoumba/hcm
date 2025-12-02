@@ -41,7 +41,9 @@ export default function Partners() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-light rounded-full mb-6">
             <Handshake size={32} className="text-primary" />
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Nos Partenaires</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Nos Partenaires
+          </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Nous travaillons en collaboration avec des institutions, entreprises
             et organisations engagées pour créer un impact durable
@@ -79,4 +81,3 @@ export default function Partners() {
     </section>
   );
 }
-
