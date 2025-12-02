@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 export default function ImageBanner() {
   return (
@@ -14,15 +14,13 @@ export default function ImageBanner() {
       </div>
       <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center">
         <div className="max-w-2xl text-white">
-          <h2 className="text-4xl font-bold mb-4">
-            Ensemble pour une société inclusive
-          </h2>
+          <h2 className="text-4xl font-bold mb-4">Ensemble pour une société inclusive</h2>
           <p className="text-xl leading-relaxed">
-            Chaque action compte. Rejoignez-nous dans notre mission pour créer
-            un Congo où la mobilité et l'inclusion sont accessibles à tous.
+            Chaque action compte. Rejoignez-nous dans notre mission pour créer un Congo où la
+            mobilité et l&apos;inclusion sont accessibles à tous.
           </p>
         </div>
       </div>
     </section>
-  );
+  )
 }

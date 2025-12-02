@@ -1,7 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import { Smartphone, CreditCard, Heart, Shield, CheckCircle, Sparkles, Lock, TrendingUp } from 'lucide-react'
+import {
+  Smartphone,
+  CreditCard,
+  Heart,
+  Shield,
+  CheckCircle,
+  Sparkles,
+  Lock,
+  TrendingUp,
+} from 'lucide-react'
 
 export default function DonationSection() {
   const [donationAmount, setDonationAmount] = useState('')
@@ -34,8 +43,10 @@ export default function DonationSection() {
       }
     }
 
-    alert(`Merci pour votre don de ${donationAmount} FCFA via ${paymentMethod === 'momo' ? 'MoMo' : 'carte bancaire'}!`)
-    
+    alert(
+      `Merci pour votre don de ${donationAmount} FCFA via ${paymentMethod === 'momo' ? 'MoMo' : 'carte bancaire'}!`,
+    )
+
     setDonationAmount('')
     setPaymentMethod(null)
     setPhoneNumber('')
@@ -46,11 +57,14 @@ export default function DonationSection() {
   }
 
   return (
-    <section id="dons" className="section bg-gradient-to-br from-white via-secondary-light/20 to-primary-light/30 relative overflow-hidden">
+    <section
+      id="dons"
+      className="section bg-gradient-to-br from-white via-secondary-light/20 to-primary-light/30 relative overflow-hidden"
+    >
       {/* Background decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-      
+
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full mb-4">
@@ -59,10 +73,11 @@ export default function DonationSection() {
           </div>
           <h2 className="section-title animate-fade-in mb-4">Faire un Don</h2>
           <p className="section-subtitle animate-fade-in">
-            Votre générosité contribue à améliorer la mobilité et l'inclusion des personnes en situation de handicap au Congo.
+            Votre générosité contribue à améliorer la mobilité et l&apos;inclusion des personnes en
+            situation de handicap au Congo.
           </p>
         </div>
-        
+
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
             {/* Suggested amounts sidebar */}
@@ -144,8 +159,8 @@ export default function DonationSection() {
                         type="button"
                         onClick={() => setPaymentMethod('momo')}
                         className={`group p-6 rounded-xl border-2 transition-all duration-300 text-center relative overflow-hidden ${
-                          paymentMethod === 'momo' 
-                            ? 'border-secondary bg-secondary-light shadow-lg scale-105' 
+                          paymentMethod === 'momo'
+                            ? 'border-secondary bg-secondary-light shadow-lg scale-105'
                             : 'border-gray-200 bg-white hover:border-secondary/50 hover:shadow-md'
                         }`}
                       >
@@ -155,26 +170,34 @@ export default function DonationSection() {
                           </div>
                         )}
                         <div className="mb-3 flex justify-center">
-                          <div className={`p-3 rounded-full transition-colors ${
-                            paymentMethod === 'momo' ? 'bg-secondary/20' : 'bg-gray-100 group-hover:bg-secondary/10'
-                          }`}>
-                            <Smartphone size={32} color={paymentMethod === 'momo' ? '#00a86b' : '#666'} strokeWidth={2} />
+                          <div
+                            className={`p-3 rounded-full transition-colors ${
+                              paymentMethod === 'momo'
+                                ? 'bg-secondary/20'
+                                : 'bg-gray-100 group-hover:bg-secondary/10'
+                            }`}
+                          >
+                            <Smartphone
+                              size={32}
+                              color={paymentMethod === 'momo' ? '#00a86b' : '#666'}
+                              strokeWidth={2}
+                            />
                           </div>
                         </div>
-                        <div className={`font-bold text-lg mb-1 ${paymentMethod === 'momo' ? 'text-secondary' : 'text-gray-700'}`}>
+                        <div
+                          className={`font-bold text-lg mb-1 ${paymentMethod === 'momo' ? 'text-secondary' : 'text-gray-700'}`}
+                        >
                           MoMo
                         </div>
-                        <div className="text-xs text-gray-600">
-                          Mobile Money
-                        </div>
+                        <div className="text-xs text-gray-600">Mobile Money</div>
                       </button>
 
                       <button
                         type="button"
                         onClick={() => setPaymentMethod('card')}
                         className={`group p-6 rounded-xl border-2 transition-all duration-300 text-center relative overflow-hidden ${
-                          paymentMethod === 'card' 
-                            ? 'border-primary bg-primary-light shadow-lg scale-105' 
+                          paymentMethod === 'card'
+                            ? 'border-primary bg-primary-light shadow-lg scale-105'
                             : 'border-gray-200 bg-white hover:border-primary/50 hover:shadow-md'
                         }`}
                       >
@@ -184,18 +207,26 @@ export default function DonationSection() {
                           </div>
                         )}
                         <div className="mb-3 flex justify-center">
-                          <div className={`p-3 rounded-full transition-colors ${
-                            paymentMethod === 'card' ? 'bg-primary/20' : 'bg-gray-100 group-hover:bg-primary/10'
-                          }`}>
-                            <CreditCard size={32} color={paymentMethod === 'card' ? '#0052a3' : '#666'} strokeWidth={2} />
+                          <div
+                            className={`p-3 rounded-full transition-colors ${
+                              paymentMethod === 'card'
+                                ? 'bg-primary/20'
+                                : 'bg-gray-100 group-hover:bg-primary/10'
+                            }`}
+                          >
+                            <CreditCard
+                              size={32}
+                              color={paymentMethod === 'card' ? '#0052a3' : '#666'}
+                              strokeWidth={2}
+                            />
                           </div>
                         </div>
-                        <div className={`font-bold text-lg mb-1 ${paymentMethod === 'card' ? 'text-primary' : 'text-gray-700'}`}>
+                        <div
+                          className={`font-bold text-lg mb-1 ${paymentMethod === 'card' ? 'text-primary' : 'text-gray-700'}`}
+                        >
                           Carte Bancaire
                         </div>
-                        <div className="text-xs text-gray-600">
-                          Visa / Mastercard
-                        </div>
+                        <div className="text-xs text-gray-600">Visa / Mastercard</div>
                       </button>
                     </div>
                   </div>
@@ -237,7 +268,7 @@ export default function DonationSection() {
                           Informations de la carte bancaire
                         </label>
                       </div>
-                      
+
                       <div className="mb-4">
                         <label className="block mb-2 font-semibold text-gray-900">
                           Nom sur la carte *
@@ -265,7 +296,14 @@ export default function DonationSection() {
                         <input
                           type="text"
                           value={cardNumber}
-                          onChange={(e) => setCardNumber(e.target.value.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim())}
+                          onChange={(e) =>
+                            setCardNumber(
+                              e.target.value
+                                .replace(/\s/g, '')
+                                .replace(/(.{4})/g, '$1 ')
+                                .trim(),
+                            )
+                          }
                           onFocus={() => setFocusedField('cardNumber')}
                           onBlur={() => setFocusedField(null)}
                           placeholder="1234 5678 9012 3456"
@@ -282,7 +320,7 @@ export default function DonationSection() {
                       <div className="grid grid-cols-2 gap-4">
                         <div>
                           <label className="block mb-2 font-semibold text-gray-900">
-                            Date d'expiration *
+                            Date d&apos;expiration *
                           </label>
                           <input
                             type="text"
@@ -308,13 +346,13 @@ export default function DonationSection() {
                         </div>
 
                         <div>
-                          <label className="block mb-2 font-semibold text-gray-900">
-                            CVV *
-                          </label>
+                          <label className="block mb-2 font-semibold text-gray-900">CVV *</label>
                           <input
                             type="text"
                             value={cardCvv}
-                            onChange={(e) => setCardCvv(e.target.value.replace(/\D/g, '').slice(0, 3))}
+                            onChange={(e) =>
+                              setCardCvv(e.target.value.replace(/\D/g, '').slice(0, 3))
+                            }
                             onFocus={() => setFocusedField('cardCvv')}
                             onBlur={() => setFocusedField(null)}
                             placeholder="123"
@@ -336,10 +374,9 @@ export default function DonationSection() {
                     className="group btn btn-primary w-full py-4 text-lg font-bold rounded-xl mt-4 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     <Heart size={20} className="group-hover:scale-110 transition-transform" />
-                    {donationAmount && parseInt(donationAmount) > 0 
+                    {donationAmount && parseInt(donationAmount) > 0
                       ? `Confirmer le don de ${parseInt(donationAmount).toLocaleString('fr-FR')} FCFA`
-                      : 'Confirmer le don'
-                    }
+                      : 'Confirmer le don'}
                   </button>
                 </form>
               </div>

@@ -1,5 +1,5 @@
-import { Target, Rocket, Handshake } from "lucide-react";
-import Image from "next/image";
+import { Target, Rocket, Handshake } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Mission() {
   return (
@@ -23,15 +23,14 @@ export default function Mission() {
           {/* Text Section */}
           <div className="order-1 lg:order-2">
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              Promouvoir, soutenir et développer des initiatives pour améliorer
-              la mobilité des personnes en situation de handicap. Nous croyons
-              en une société inclusive où chaque individu peut accéder aux mêmes
-              opportunités et vivre avec dignité.
+              Promouvoir, soutenir et développer des initiatives pour améliorer la mobilité des
+              personnes en situation de handicap. Nous croyons en une société inclusive où chaque
+              individu peut accéder aux mêmes opportunités et vivre avec dignité.
             </p>
             <p className="text-base text-gray-700 leading-relaxed">
-              Notre engagement se traduit par des actions concrètes sur le
-              terrain, des partenariats stratégiques et une vision à long terme
-              pour transformer les défis en opportunités d'inclusion.
+              Notre engagement se traduit par des actions concrètes sur le terrain, des partenariats
+              stratégiques et une vision à long terme pour transformer les défis en opportunités
+              d&apos;inclusion.
             </p>
           </div>
         </div>
@@ -42,14 +41,11 @@ export default function Mission() {
               <div className="p-2 bg-primary-light rounded-lg">
                 <Target size={24} className="text-primary" strokeWidth={2} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Inclusion Totale
-              </h3>
+              <h3 className="text-xl font-semibold text-gray-900">Inclusion Totale</h3>
             </div>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Contribuer à la pleine inclusion des personnes en situation de
-              handicap dans tous les aspects de la vie sociale, économique et
-              culturelle.
+              Contribuer à la pleine inclusion des personnes en situation de handicap dans tous les
+              aspects de la vie sociale, économique et culturelle.
             </p>
           </div>
 
@@ -58,14 +54,11 @@ export default function Mission() {
               <div className="p-2 bg-secondary-light rounded-lg">
                 <Rocket size={24} className="text-secondary" strokeWidth={2} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Mobilité Améliorée
-              </h3>
+              <h3 className="text-xl font-semibold text-gray-900">Mobilité Améliorée</h3>
             </div>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Développer des solutions innovantes pour faciliter le déplacement
-              et l'accès aux services essentiels pour les personnes à mobilité
-              réduite.
+              Développer des solutions innovantes pour faciliter le déplacement et l&apos;accès aux
+              services essentiels pour les personnes à mobilité réduite.
             </p>
           </div>
 
@@ -74,17 +67,15 @@ export default function Mission() {
               <div className="p-2 bg-primary-light rounded-lg">
                 <Handshake size={24} className="text-primary" strokeWidth={2} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Partenariats Solides
-              </h3>
+              <h3 className="text-xl font-semibold text-gray-900">Partenariats Solides</h3>
             </div>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Travailler en collaboration avec les institutions, entreprises et
-              organisations pour créer un écosystème inclusif et accessible.
+              Travailler en collaboration avec les institutions, entreprises et organisations pour
+              créer un écosystème inclusif et accessible.
             </p>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
