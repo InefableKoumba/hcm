@@ -13,7 +13,7 @@ export default function Mission() {
           {/* Image Section */}
           <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-2 lg:order-1">
             <Image
-              src="https://images.unsplash.com/photo-1582213782179-e0d9f806862e?q=80&w=2070&auto=format&fit=crop"
+              src="https://iscresearch.com/wp-content/uploads/2022/04/ISL-Magazine-April22-Web-Images6.png"
               alt="Mission d'inclusion et de mobilité"
               fill
               className="object-cover"

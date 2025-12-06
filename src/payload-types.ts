@@ -69,6 +69,11 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    hero: Hero;
+    actions: Action;
+    partners: Partner;
+    projects: Project;
+    testimonials: Testimonial;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +83,11 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    hero: HeroSelect<false> | HeroSelect<true>;
+    actions: ActionsSelect<false> | ActionsSelect<true>;
+    partners: PartnersSelect<false> | PartnersSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -87,8 +97,14 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'site-settings': SiteSetting;
+    'donation-settings': DonationSetting;
+  };
+  globalsSelect: {
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+    'donation-settings': DonationSettingsSelect<false> | DonationSettingsSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -161,6 +177,101 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "hero".
+ */
+export interface Hero {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  backgroundImage?: (number | null) | Media;
+  stats?:
+    | {
+        number: string;
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  ctaButtons?:
+    | {
+        text: string;
+        href: string;
+        variant?: ('primary' | 'secondary' | 'outline') | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "actions".
+ */
+export interface Action {
+  id: number;
+  title: string;
+  description: string;
+  icon: 'ShipWheel' | 'GraduationCap' | 'Building2' | 'HeartHandshake' | 'Users' | 'Award';
+  color?: ('#0052a3' | '#00a86b') | null;
+  stats: string;
+  statsLabel: string;
+  image?: (number | null) | Media;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners".
+ */
+export interface Partner {
+  id: number;
+  name: string;
+  category:
+    | 'Institution publique'
+    | 'Organisation internationale'
+    | 'Entreprise'
+    | 'Association'
+    | 'Institution financière'
+    | 'Éducation';
+  logo: number | Media;
+  website?: string | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  icon: 'Bus' | 'BookOpen' | 'CircleUser' | 'Megaphone' | 'Building' | 'Wrench';
+  status?: ('Actif' | 'En cours' | 'Planifié') | null;
+  color?: ('#0052a3' | '#00a86b') | null;
+  image?: (number | null) | Media;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: number;
+  name: string;
+  role: string;
+  testimonial: string;
+  photo?: (number | null) | Media;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -190,6 +301,26 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'hero';
+        value: number | Hero;
+      } | null)
+    | ({
+        relationTo: 'actions';
+        value: number | Action;
+      } | null)
+    | ({
+        relationTo: 'partners';
+        value: number | Partner;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: number | Project;
+      } | null)
+    | ({
+        relationTo: 'testimonials';
+        value: number | Testimonial;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -275,6 +406,90 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "hero_select".
+ */
+export interface HeroSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  description?: T;
+  backgroundImage?: T;
+  stats?:
+    | T
+    | {
+        number?: T;
+        label?: T;
+        id?: T;
+      };
+  ctaButtons?:
+    | T
+    | {
+        text?: T;
+        href?: T;
+        variant?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "actions_select".
+ */
+export interface ActionsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  icon?: T;
+  color?: T;
+  stats?: T;
+  statsLabel?: T;
+  image?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners_select".
+ */
+export interface PartnersSelect<T extends boolean = true> {
+  name?: T;
+  category?: T;
+  logo?: T;
+  website?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  icon?: T;
+  status?: T;
+  color?: T;
+  image?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials_select".
+ */
+export interface TestimonialsSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  testimonial?: T;
+  photo?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -312,6 +527,116 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings".
+ */
+export interface SiteSetting {
+  id: number;
+  siteName: string;
+  siteDescription: string;
+  logo?: (number | null) | Media;
+  email: string;
+  phone?: string | null;
+  address?: string | null;
+  mapCoordinates?: {
+    latitude?: number | null;
+    longitude?: number | null;
+  };
+  socialMedia?:
+    | {
+        platform: 'facebook' | 'twitter' | 'linkedin' | 'instagram' | 'youtube';
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  metaTitle?: string | null;
+  metaDescription?: string | null;
+  ogImage?: (number | null) | Media;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donation-settings".
+ */
+export interface DonationSetting {
+  id: number;
+  suggestedAmounts?:
+    | {
+        amount: number;
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  minimumAmount?: number | null;
+  paymentMethods?:
+    | {
+        name: string;
+        enabled?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  donationMessage?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  siteName?: T;
+  siteDescription?: T;
+  logo?: T;
+  email?: T;
+  phone?: T;
+  address?: T;
+  mapCoordinates?:
+    | T
+    | {
+        latitude?: T;
+        longitude?: T;
+      };
+  socialMedia?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  metaTitle?: T;
+  metaDescription?: T;
+  ogImage?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donation-settings_select".
+ */
+export interface DonationSettingsSelect<T extends boolean = true> {
+  suggestedAmounts?:
+    | T
+    | {
+        amount?: T;
+        label?: T;
+        id?: T;
+      };
+  minimumAmount?: T;
+  paymentMethods?:
+    | T
+    | {
+        name?: T;
+        enabled?: T;
+        id?: T;
+      };
+  donationMessage?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
