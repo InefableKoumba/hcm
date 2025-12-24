@@ -74,6 +74,7 @@ export interface Config {
     partners: Partner;
     projects: Project;
     testimonials: Testimonial;
+    founders: Founder;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -88,6 +89,7 @@ export interface Config {
     partners: PartnersSelect<false> | PartnersSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
+    founders: FoundersSelect<false> | FoundersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -272,6 +274,20 @@ export interface Testimonial {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "founders".
+ */
+export interface Founder {
+  id: number;
+  name: string;
+  role: string;
+  image: number | Media;
+  bio?: string | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -321,6 +337,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'testimonials';
         value: number | Testimonial;
+      } | null)
+    | ({
+        relationTo: 'founders';
+        value: number | Founder;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -484,6 +504,19 @@ export interface TestimonialsSelect<T extends boolean = true> {
   role?: T;
   testimonial?: T;
   photo?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "founders_select".
+ */
+export interface FoundersSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  image?: T;
+  bio?: T;
   order?: T;
   updatedAt?: T;
   createdAt?: T;

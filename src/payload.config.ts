@@ -15,6 +15,7 @@ import { Actions } from './collections/Actions'
 import { Partners } from './collections/Partners'
 import { Projects } from './collections/Projects'
 import { Testimonials } from './collections/Testimonials'
+import { Founders } from './collections/Founders'
 import { SiteSettings } from './globals/SiteSettings'
 import { DonationSettings } from './globals/DonationSettings'
 
@@ -39,7 +40,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Hero, Actions, Partners, Projects, Testimonials],
+  collections: [Users, Media, Hero, Actions, Partners, Projects, Testimonials, Founders],
   globals: [SiteSettings, DonationSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

@@ -8,6 +8,7 @@ import Values from '@/components/Values'
 import Actions from '@/components/Actions'
 import Partners from '@/components/Partners'
 import Projects from '@/components/Projects'
+import Founders from '@/components/Founders'
 import Contact from '@/components/Contact'
 import ImageBanner from '@/components/ImageBanner'
 
@@ -23,6 +24,7 @@ export default function Home() {
       <Actions />
       <Projects />
       <Testimonials />
+      <Founders />
       <Partners />
       <Contact />
       <Footer />
