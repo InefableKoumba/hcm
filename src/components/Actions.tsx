@@ -1,46 +1,80 @@
+'use client'
+
 import { ShipWheel, GraduationCap, Building2, HeartHandshake, Users, Award } from 'lucide-react'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+
+interface Action {
+  id?: string
+  title: string
+  description: string
+  icon: string
+  color: string
+  stats: string
+  statsLabel: string
+  image?:
+    | {
+        url?: string
+        alt?: string
+      }
+    | string
+    | null
+}
 
 export default function Actions() {
-  const actions = [
+  const [actions, setActions] = useState<Action[]>([])
+
+  useEffect(() => {
+    async function fetchActions() {
+      try {
+        const response = await fetch('/api/actions?limit=100&sort=order&depth=2')
+        if (response.ok) {
+          const data = await response.json()
+          setActions(data.docs || [])
+        }
+      } catch (error) {
+        console.error('Error fetching actions:', error)
+      }
+    }
+    fetchActions()
+  }, [])
+
+  const defaultActions: Action[] = [
     {
       title: "Distribution d'équipements de mobilité",
       description:
         'Nous distribuons gratuitement des fauteuils roulants, béquilles, déambulateurs et autres équipements de mobilité aux personnes en situation de handicap qui en ont besoin. Plus de 500 équipements distribués depuis notre création.',
-      icon: ShipWheel,
+      icon: 'ShipWheel',
       color: '#0052a3',
       stats: '500+',
       statsLabel: 'Équipements distribués',
-      image:
-        'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=2070&auto=format&fit=crop',
+      image: '/assets/promotion/IMG_6679-min.JPG',
     },
     {
       title: 'Programmes de formation',
       description:
         "Organisation de formations professionnelles et d'ateliers de développement de compétences pour favoriser l'insertion professionnelle des personnes en situation de handicap dans divers secteurs d'activité.",
-      icon: GraduationCap,
+      icon: 'GraduationCap',
       color: '#00a86b',
       stats: '200+',
       statsLabel: 'Personnes formées',
-      image:
-        'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop',
+      image: '/assets/promotion/IMG_6689-min.JPG',
     },
     {
       title: "Aménagement d'infrastructures",
       description:
         "Travaux d'aménagement et d'accessibilité dans les bâtiments publics, écoles et espaces communautaires pour garantir l'accès à tous, incluant l'installation de rampes, ascenseurs et signalétique adaptée.",
-      icon: Building2,
+      icon: 'Building2',
       color: '#0052a3',
       stats: '50+',
       statsLabel: 'Sites aménagés',
-      image:
-        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
+      image: '/assets/promotion/IMG_6693-min.JPG',
     },
     {
       title: 'Sensibilisation et plaidoyer',
       description:
         "Campagnes de sensibilisation dans les communautés, écoles et entreprises pour changer les mentalités, promouvoir l'inclusion et faire respecter les droits des personnes en situation de handicap.",
-      icon: HeartHandshake,
+      icon: 'HeartHandshake',
       color: '#00a86b',
       stats: '100+',
       statsLabel: 'Campagnes réalisées',
@@ -49,7 +83,7 @@ export default function Actions() {
       title: 'Support et accompagnement',
       description:
         'Accompagnement personnalisé des personnes en situation de handicap et de leurs familles dans leurs démarches administratives, médicales et sociales pour faciliter leur intégration.',
-      icon: Users,
+      icon: 'Users',
       color: '#0052a3',
       stats: '1000+',
       statsLabel: 'Personnes accompagnées',
@@ -58,12 +92,14 @@ export default function Actions() {
       title: 'Partenariats stratégiques',
       description:
         "Développement de partenariats avec des institutions, entreprises et organisations pour créer un écosystème inclusif et pérenne en faveur de la mobilité et de l'inclusion.",
-      icon: Award,
+      icon: 'Award',
       color: '#00a86b',
       stats: '30+',
       statsLabel: 'Partenaires actifs',
     },
   ]
+
+  const displayActions = actions.length > 0 ? actions : defaultActions
 
   return (
     <section id="actions" className="section bg-gray-50 py-20">
@@ -71,7 +107,7 @@ export default function Actions() {
         {/* Cover Image */}
         <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-16 shadow-lg">
           <Image
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop"
+            src="/assets/promotion/IMG_6764-min.JPG"
             alt="Actions de la fondation"
             fill
             className="object-cover"
@@ -88,16 +124,33 @@ export default function Actions() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {actions.map((action, index) => {
-            const IconComponent = action.icon
+          {displayActions.map((action, index) => {
+            const iconName = action.icon || 'ShipWheel'
+            const iconMap: Record<string, any> = {
+              ShipWheel,
+              GraduationCap,
+              Building2,
+              HeartHandshake,
+              Users,
+              Award,
+            }
+            const IconComponent = iconMap[iconName] || ShipWheel
+
+            const imageUrl =
+              typeof action.image === 'string'
+                ? action.image
+                : action.image && typeof action.image === 'object' && 'url' in action.image
+                  ? action.image.url || ''
+                  : null
+
             return (
               <div
-                key={index}
+                key={action.id || index}
                 className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
               >
-                {action.image && (
+                {imageUrl && (
                   <div className="relative h-48 w-full">
-                    <Image src={action.image} alt={action.title} fill className="object-cover" />
+                    <Image src={imageUrl} alt={action.title} fill className="object-cover" />
                   </div>
                 )}
                 <div className="p-6">

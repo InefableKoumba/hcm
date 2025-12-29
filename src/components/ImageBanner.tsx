@@ -5,7 +5,7 @@ export default function ImageBanner() {
     <section className="relative h-96 overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2070&auto=format&fit=crop"
+          src="/assets/promotion/IMG_6770-min.JPG"
           alt="Communauté inclusive"
           fill
           className="object-cover"
