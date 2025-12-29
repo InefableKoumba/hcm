@@ -22,7 +22,7 @@ export default function Hero() {
 
   const stats = [
     { number: '500+', label: 'Personnes aidées', icon: Users },
-    { number: '50+', label: 'Projets réalisés', icon: Target },
+    { number: '50+', label: 'Actions réalisées', icon: Target },
     { number: '100%', label: 'Engagement', icon: Heart },
   ]
 
@@ -34,13 +34,14 @@ export default function Hero() {
       {/* Hero Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2070&auto=format&fit=crop"
-          alt="Accessibility and inclusion"
+          src="/assets/promotion/IMG_6690-min.JPG"
+          alt="HandiMobilité Congo"
           fill
-          className="object-cover opacity-20"
+          className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/75 to-secondary/80" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* Background Effects */}
@@ -77,20 +78,18 @@ export default function Hero() {
 
           {/* Main Title */}
           <h1
-            className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight drop-shadow-2xl animate-fade-in"
+            className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] animate-fade-in"
             style={{
               animationDelay: '0.1s',
               animationFillMode: 'both',
             }}
           >
-            <span className="block bg-linear-to-r from-white via-white to-white/90 bg-clip-text text-transparent">
-              HandiMobilité Congo
-            </span>
+            HandiMobilité Congo
           </h1>
 
           {/* Subtitle */}
           <p
-            className="text-xl md:text-2xl lg:text-3xl mb-6 font-bold leading-tight animate-fade-in"
+            className="text-xl md:text-2xl lg:text-3xl mb-6 font-bold leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] animate-fade-in"
             style={{
               animationDelay: '0.2s',
               animationFillMode: 'both',
@@ -101,7 +100,7 @@ export default function Hero() {
 
           {/* Description */}
           <p
-            className="text-base mb-8 opacity-95 leading-relaxed max-w-3xl mx-auto animate-fade-in"
+            className="text-base mb-8 text-white/95 leading-relaxed max-w-3xl mx-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)] animate-fade-in"
             style={{
               animationDelay: '0.3s',
               animationFillMode: 'both',
@@ -120,7 +119,7 @@ export default function Hero() {
             }}
           >
             <Link
-              href="#dons"
+              href="/don"
               className="group btn btn-secondary px-8 py-4 rounded-xl shadow-[0_8px_30px_rgba(0,168,107,0.4)] hover:shadow-[0_12px_40px_rgba(0,168,107,0.5)] transition-all duration-300"
             >
               <Heart size={20} className="group-hover:scale-110 transition-transform" />

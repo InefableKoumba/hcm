@@ -9,6 +9,7 @@ import Actions from '@/components/Actions'
 import Partners from '@/components/Partners'
 import Projects from '@/components/Projects'
 import Founders from '@/components/Founders'
+import Gallery from '@/components/Gallery'
 import Contact from '@/components/Contact'
 import ImageBanner from '@/components/ImageBanner'
 
@@ -22,9 +23,9 @@ export default function Home() {
       <Values />
       <ImageBanner />
       <Actions />
-      <Projects />
       <Testimonials />
       <Founders />
+      <Gallery />
       <Partners />
       <Contact />
       <Footer />

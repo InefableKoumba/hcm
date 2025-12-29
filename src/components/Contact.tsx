@@ -1,39 +1,33 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { Send, MapPin, Mail, Phone } from "lucide-react";
+import { useState } from 'react'
+import { Send, MapPin, Mail, Phone } from 'lucide-react'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+    name: '',
+    email: '',
+    message: '',
+  })
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert(
-      "Merci pour votre message ! Nous vous répondrons dans les plus brefs délais."
-    );
-    setFormData({ name: "", email: "", message: "" });
-  };
+    e.preventDefault()
+    alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.')
+    setFormData({ name: '', email: '', message: '' })
+  }
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   return (
     <section id="contact" className="section bg-gray-50 py-20">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Contactez-nous
-          </h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Contactez-nous</h2>
           <p className="text-lg text-gray-600">
             Nous sommes là pour répondre à vos questions et vous accompagner
           </p>
@@ -42,9 +36,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Form */}
           <div className="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-              Envoyez-nous un message
-            </h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-6">Envoyez-nous un message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-700">
@@ -62,9 +54,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-700">
-                  Email *
-                </label>
+                <label className="block mb-2 text-sm font-medium text-gray-700">Email *</label>
                 <input
                   type="email"
                   name="email"
@@ -77,9 +67,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-700">
-                  Message *
-                </label>
+                <label className="block mb-2 text-sm font-medium text-gray-700">Message *</label>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -105,18 +93,14 @@ export default function Contact() {
           <div className="space-y-6">
             {/* Contact Info */}
             <div className="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Nos coordonnées
-              </h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Nos coordonnées</h3>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-primary-light rounded-lg shrink-0">
                     <MapPin size={24} className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">
-                      Adresse
-                    </h4>
+                    <h4 className="font-semibold text-gray-900 mb-1">Adresse</h4>
                     <p className="text-gray-600">
                       République du Congo
                       <br />
@@ -145,14 +129,9 @@ export default function Contact() {
                     <Phone size={24} className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">
-                      Téléphone
-                    </h4>
-                    <a
-                      href="tel:+242XXXXXXXXX"
-                      className="text-gray-600 hover:text-primary"
-                    >
-                      +242 XX XXX XXXX
+                    <h4 className="font-semibold text-gray-900 mb-1">Téléphone</h4>
+                    <a href="tel:+242XXXXXXXXX" className="text-gray-600 hover:text-primary">
+                      +242 06 131 03 03
                     </a>
                   </div>
                 </div>
@@ -185,5 +164,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -1,14 +1,7 @@
-"use client";
+'use client'
 
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Mail,
-  Phone,
-  MapPin,
-} from "lucide-react";
-import Link from "next/link";
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -16,44 +9,29 @@ export default function Footer() {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           <div>
-            <h3 className="text-2xl font-extrabold mb-4 tracking-tight">
-              HANDI MOBILITÉ CONGO
-            </h3>
+            <h3 className="text-2xl font-extrabold mb-4 tracking-tight">HANDI MOBILITÉ CONGO</h3>
             <p className="text-sm opacity-80 leading-relaxed mb-5">
               Le chemin de la mobilité commence ici.
             </p>
             <p className="text-sm opacity-70">
-              Contribuons ensemble à la pleine inclusion des personnes en
-              situation de handicap.
+              Contribuons ensemble à la pleine inclusion des personnes en situation de handicap.
             </p>
           </div>
 
           <div>
             <h4 className="text-lg font-bold mb-5">Navigation</h4>
             <div className="flex flex-col gap-3">
-              {[
-                "Accueil",
-                "À propos",
-                "Projets",
-                "Faire un don",
-                "Contact",
-              ].map((item, index) => {
-                const links = [
-                  "#accueil",
-                  "#apropos",
-                  "#projets",
-                  "#dons",
-                  "#contact",
-                ];
+              {['Accueil', 'À propos', , 'Faire un don', 'Contact'].map((item, index) => {
+                const links = ['#accueil', '#apropos', , '/don', '#contact']
                 return (
                   <Link
                     key={index}
-                    href={links[index]}
+                    href={links[index] as string}
                     className="text-[15px] text-white/80 transition-colors hover:text-white"
                   >
                     {item}
                   </Link>
-                );
+                )
               })}
             </div>
           </div>
@@ -63,11 +41,11 @@ export default function Footer() {
             <div className="flex flex-col gap-3 text-[15px] opacity-80">
               <div className="flex items-center gap-2">
                 <Mail size={18} />
-                <span>contact@handimobilitecongo.cg</span>
+                <span>handimobiltecongo@outlook.fr</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={18} />
-                <span>+242 XX XXX XXXX</span>
+                <span>+242 06 131 03 03</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={18} />
@@ -93,15 +71,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 text-center text-sm opacity-70">
-          <p>
-            © {new Date().getFullYear()} HandiMobilité Congo. Tous droits
-            réservés.
-          </p>
-          <p className="mt-2">
-            Fondation à but non lucratif - République du Congo
-          </p>
+          <p>© {new Date().getFullYear()} HandiMobilité Congo. Tous droits réservés.</p>
+          <p className="mt-2">Fondation à but non lucratif - République du Congo</p>
         </div>
       </div>
     </footer>
-  );
+  )
 }

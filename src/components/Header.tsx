@@ -1,24 +1,23 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import Logo from "@/components/Logo";
-import Link from "next/link";
+import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
+import Logo from '@/components/Logo'
+import Link from 'next/link'
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navLinks = [
-    { href: "/#accueil", label: "Accueil" },
-    { href: "/#apropos", label: "À propos" },
-    { href: "/#actions", label: "Nos actions" },
-    { href: "/#projets", label: "Projets" },
-    { href: "/don", label: "Faire un don" },
-  ];
+    { href: '/#accueil', label: 'Accueil' },
+    { href: '/#apropos', label: 'À propos' },
+    { href: '/#actions', label: 'Nos actions' },
+    { href: '/don', label: 'Faire un don' },
+  ]
 
   const handleLinkClick = () => {
-    setMobileMenuOpen(false);
-  };
+    setMobileMenuOpen(false)
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
@@ -53,11 +52,7 @@ export default function Header() {
             className="lg:hidden p-2 text-gray-700"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? (
-              <X size={24} strokeWidth={2} />
-            ) : (
-              <Menu size={24} strokeWidth={2} />
-            )}
+            {mobileMenuOpen ? <X size={24} strokeWidth={2} /> : <Menu size={24} strokeWidth={2} />}
           </button>
         </div>
 
@@ -85,5 +80,5 @@ export default function Header() {
         )}
       </div>
     </header>
-  );
+  )
 }
